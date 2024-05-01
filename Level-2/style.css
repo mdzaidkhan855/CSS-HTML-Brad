@@ -1,0 +1,105 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+/* CSS custom variables, here root and html are same */
+:root{
+    --accent:purple;
+}
+
+.heading{
+    margin-bottom: 50px;
+}
+/* creating content through CSS, not through HTML */
+.heading::after{
+    content: '';
+    height: 5px;
+    width: 75px;
+    background-color:purple;
+    display: block;
+}
+
+
+.text{
+    color: red;
+    font-size: 50px;
+    box-sizing: border-box;
+
+    /* WITHOUT box-sizing: border-box
+        width = 300px so content=300px. padding 30px. this 30px is around 300px of content
+       WITH box-sizing: border-box
+        width 300px includes content as well as padding. so content width is
+           = 300 - 30 -30 = 240px
+        So in short : box-sizing:  width is width of content as well as padding
+                      otherwisw width is just content width
+    */
+    width: 300px;
+    padding: 30px;
+}
+
+.boxes{
+    height: 300px;
+    width: 500px;
+    background-color: black;
+    margin-left: 30px;
+    /* ###################  CONCEPT AROUND FLEX ########################## */
+    /* boxes is flex container, whereas each box is flex item */
+    /* display: flex; */
+
+    /* for HORIZONTAL setting, use justify-content(Horizontal) with all combination of its values 
+        space-between, space-evely are other values
+    */
+    /* justify-content: center;  */
+    
+    /* for VRTICAL setting, use align-items(Vertical) will all combination of its values 
+        start and end are other attributes for top and bottom respectively.
+    */
+    /* align-items: center;  */
+
+    /* flex-direction:row is default 
+        Trciky part: when use flex-direction: column, the justify-content and alighn-items
+         gets switched means => justify-content becomes align-items => vertical
+                             => align-items becomes justify-content => horizontal
+    */
+    /* flex-direction: column; */
+
+    /* #################  CONCEPT AROUND POSITION #################### */
+    /* position: relative; */
+
+    
+}
+.box{
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    /* margin-top: 5px; */
+    margin-bottom: 25px;
+}
+
+/* it selects first child of 3 box */
+.box:nth-child(3){
+    background-color: var(--accent);
+    
+    /* absolute and right means this element takes position NOT from its parent(boxes) 
+     Instead, it takes from parent of parent that is viewport. so 50px from far right
+     However, if want to positio ths child relative to boxes, u need to decalare
+      position: relative;(line no:51) in the boxes and absolute in box
+     */
+    /* position: absolute;
+    right: 50px;
+    top: 20px; */
+
+    /* HOW TO PUT ALL boxe items at the centre using position. 
+     Steps are as below:
+     1. decalre below attributes.
+     2. decalre position relative in box . position: relative;
+    */
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
+    
+    position:absolute;
+
+}

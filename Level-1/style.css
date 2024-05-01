@@ -1,0 +1,52 @@
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.img{
+    height: 260px;
+    width: 260px;
+
+    /* img is inline, so to apply margin as an auto, 
+        one need to first convert display as block level fi */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fade-in 1s;
+}
+
+.heading{
+    font-size: 30px;
+    color: aqua;
+    border: 1px solid red;
+    animation: fade-in 1s;
+}
+
+.text{
+    text-align: center;
+}
+.btn{
+    /* transform:  scale(2) translateX(150px); */
+    display: block;
+    margin: auto;
+
+    /* button transform property when hover with transition 1s, not instantly */
+    transition: transform 2s;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform:  scale(2);
+    
+}
+.input:focus{
+    transform:  scale(2);
+}

@@ -1,0 +1,195 @@
+
+/* BASE styles */
+body{
+    font-family: 'Lato', sans-serif;
+    /* if the last 3 is same as first 3, you can leave last 3 */
+    color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1583795484071-3c453e3a7c71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=100');
+    background-color: rgba(0,0,0,0.5);
+    /* image needs to be blend with color(black with opacity 0.5), so that the text written
+     on the top of background should be visible */
+    background-blend-mode: darken;
+    background-position-y: -150px;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+    margin: 0;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* HEADER */
+
+.header{
+    /* to put on the same line for logo and ul, make parent as display:flex */
+    display: flex;
+    /* to put all the flex items at the centre, otherwise, ul is slightly 
+       veritically upward in comparison to logo */
+    align-items: center;
+    justify-content: space-between;
+
+    width: 1150px;
+    margin: auto;
+    
+    animation: fade-in 1s;
+
+        
+}
+.logo{
+    font-size: 18px;
+    font-weight: 700;
+}
+.links{
+    list-style: none;
+    /* to put all the link-item horizontal, apply display flexbox on their parent, i.e ul */
+    /* it means default begaviour of flex makes child item horizontal */
+    display: flex;    
+}
+.link-item{
+    margin-right: 25px;
+}
+.link{
+    /* Be default, browser put underline for anchor tag, so change to none */
+    text-decoration: none;
+    /* By default, browser uses blues as color for anchor text
+    Hence you have to inherit from base which is white  
+     (color: #fff;) at the top of this page */
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    font-size: 14px;
+    /* link hover shoud change color NOT instantly but smooth transition in 0.4 second */
+    /* To apply transition for all properties, syntax is: transition: all 0.4s; */
+    transition: color 0.4s;
+}
+.link:hover{
+    color: rgba(255,255,255,1);
+}
+
+/* MAIN */
+
+.main{
+    /* puts all the items like heading,paragraph and form at the centre */
+    text-align: center;
+    margin-top: 110px;
+    animation: fade-in 1.5s;
+    
+}
+.heading{
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 25px;
+
+    /* To wrap text, we use max-width. However it causes the entire heading to shift to the left
+        even after using text-align:centre on .main.
+        To solve this, we need to use margin left and right auto also.
+        */
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* As the font weight is too high, so when wrap, the gap between the line
+      is too much. To handle, let's set line height. By default it is 1.2 */
+    line-height: 0.9;
+}
+.text{
+    font-size: 24px;
+
+    /* To wrap text, we use max-width. However it causes the entire text to shift to the left
+        even after using text-align:centre on .main.
+        To solve this, we need to use margin left and right auto also.
+        */
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Reduce the opacity so that heading above should get more attention that
+        this paragraph */
+    opacity: 0.8;
+
+    line-height: 1.4;
+    
+}
+.text--bold{
+    font-weight: 700px;
+}
+.form{
+    margin-top: 60px;
+}
+.input{
+    width: 511px;
+    height: 64px;
+    border: none;
+    border-radius: 3px;
+    opacity: 0.8;
+    /* to make the text silght away from left */
+    padding-left: 30px;
+
+    font-size: 17px;
+    /* to inherit from font family declared in body */
+    font: inherit;
+    /* Find replacement. As outline is required for accebility issue like low eyesight  */
+    outline: none;
+
+    /* apply transition for all properties of input. opacity is one of them */
+    transition: all 0.4s;
+}
+.input:focus{
+    opacity: 1;
+}
+.input::placeholder{
+    color: #000;
+}
+.btn{
+    border: none;
+    padding: 0;
+    background-color: black;
+    height: 70px;
+    width: 133px;
+    color: white;
+    font: inherit;
+    border-radius: 3px;
+    margin-left: 5px;
+
+    /* deisgn trick: when use uppercase, always use letter spacing for good UI exp 
+     Also slightly lesser font size*/
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.4s;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: #161616;
+}
+
+/* FOOTER */
+.footer{
+    display: flex;
+    width: 1150px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    padding-bottom: 15px;
+    border-top: 1px solid wheat;
+    animation: fade-in 0.5s;
+}
+.copyright{
+
+}
+.stats{
+
+}
